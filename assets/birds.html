@@ -5,21 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Autocomplete - Remote with caching</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .ui-autocomplete-loading {
-      background: white url("assets/img/ui-anim_basic_16x16.gif") right center no-repeat;
-    }
-    body {
-    	font-family: Arial, Helvetica, sans-serif;
-    }
-
-    table {
-    	font-size: 1em;
-    }
-
-    .ui-draggable, .ui-droppable {
-    	background-position: top;
-    }
+  .ui-autocomplete-loading {
+    background: white url("assets/img/ui-anim_basic_16x16.gif") right center no-repeat;
+  }
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -34,10 +24,27 @@
           response( cache[ term ] );
           return;
         }
+        var competitionsAPI = "http://api.football-data.org/v1/competitions/398/teams";
+        $.ajaxSetup({
+          headers : {
+            'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'
+          }
+        });
+        $.getJSON( competitionsAPI, request, function( data, status, xhr ) {
+          var results = [];
+          var teams = data.teams;
+          for (var i = 0; i < data.count; i++) {
+            if (teams[i].name.toLowerCase().includes(term)){
+              results.push({
+                  id: teams[i].shortName,
+                  label: teams[i].name,
+                  value: teams[i].name
+              });
+            }
+          }
+          cache[ term ] = results;
 
-        $.getJSON( "search.php", request, function( data, status, xhr ) {
-          cache[ term ] = data;
-          response( data );
+          response( results );
         });
       }
     });
