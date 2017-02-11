@@ -1,3 +1,41 @@
+
+// Handle state changes for the request.
+// request.onreadystatechange = function(response) {
+//   if (request.readyState === 4) {
+//     if (request.status === 200) {
+//       // Parse the JSON
+//       var jsonOptions = JSON.parse(request.responseText);
+//
+//       // Loop over the JSON array.
+//       jsonOptions.forEach(function(item) {
+//         // Create a new <option> element.
+//         var option = document.createElement('option');
+//         // Set the value using the item in the JSON array.
+//         option.value = item;
+//         // Add the <option> element to the <datalist>.
+//         dataList.appendChild(option);
+//       });
+//
+//       // Update the placeholder text.
+//       input.placeholder = "e.g. datalist";
+//     } else {
+//       // An error occured :(
+//       input.placeholder = "Couldn't load datalist options :(";
+//     }
+//   }
+// };
+//
+// // Update the placeholder text.
+// input.placeholder = "Loading options...";
+//
+// // Set up and make the request.
+// request.open('GET', 'html-elements.json', true);
+// request.send();
+
+var dataList = document.getElementById('teamnames');
+var input = document.getElementById('team')
+var all_teams = [];
+
 $( function() {
   var cache = {};
   $( "#team" ).autocomplete({
@@ -15,17 +53,27 @@ $( function() {
         }
       });
       $.getJSON( competitionsAPI, request, function( data, status, xhr ) {
+
         var results = [];
         var teams = data.teams;
+
         for (var i = 0; i < data.count; i++) {
-          if (teams[i].name.toLowerCase().includes(term)){
+          var cur_team = teams[i].name;
+          if ((cur_team.toLowerCase().includes(term)) && !(all_teams.indexOf(cur_team.toLowerCase()) > -1)){
+            var option = document.createElement('option');
+            option.value = teams[i].name;
+            dataList.appendChild(option);
+            all_teams.push(cur_team.toLowerCase());
+
             results.push({
                 id: teams[i].shortName,
                 label: teams[i].name,
                 value: teams[i].name
             });
+            console.log(results);
           }
         }
+
         cache[ term ] = results;
 
         response( results );
