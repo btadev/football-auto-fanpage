@@ -1,47 +1,47 @@
 //api call
 
+
 var teamId = "64";
 
-var api01 = "http://api.football-data.org/v1/teams/" + teamId
-var api02 = "http://api.football-data.org/v1/teams/" + teamId + "/players"
-var api03 = "http://api.football-data.org/v1/teams/" + teamId + "/fixtures"
+var team = "http://api.football-data.org/v1/teams/" + teamId
+var players = "http://api.football-data.org/v1/teams/" + teamId + "/players"
+var fixtures = "http://api.football-data.org/v1/teams/" + teamId + "/fixtures"
 
 var teamData = null;
-var playerData = null;
-var fixtureData = null;
-
+var playersData = null;
+var fixturesData = null;
+//
 $.ajaxSetup({
     headers : {'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'}
 });
-$.getJSON(api01, function(data) {
+$.getJSON(team, function(data) {
   teamData = data;
-  responseCallback();
+  mainLogic();
 });
 
-$.getJSON(api02, function(data) {
-  playerData = data.players;
-  responseCallback();
+$.getJSON(players, function(data) {
+  playersData = data.players;
+  mainLogic();
 });
 
-$.getJSON(api03, function(data) {
-  fixtureData = data.fixtures;
-  responseCallback();
+$.getJSON(fixtures, function(data) {
+  fixturesData = data.fixtures;
+  mainLogic();
 })
 
-var responseCallback = function() {
+var mainLogic = function() {
 
-  if (!teamData || !playerData || !fixtureData)
+  if (!teamData || !playersData || !fixturesData)
     return;
 
     console.log("all 3 apis called");
     // console.log(teamData);
-    // console.log(playerData);
-    // console.log(fixtureData);
+    // console.log(fixturesData);
 
     var playersInfo = []
 
-    for (var i=0;i<playerData.length; i++){
-      cur_player = playerData[i]
+    for (var i=0;i<playersData.length; i++){
+      cur_player = playersData[i]
       playersInfo.push([
         cur_player.name,
         cur_player.position,
@@ -51,7 +51,6 @@ var responseCallback = function() {
         cur_player.nationality
       ])
     }
-    console.log(playersInfo);
 
     $(document).ready(function() {
         $('#playertable').DataTable( {
@@ -66,4 +65,26 @@ var responseCallback = function() {
             ]
         } );
     });
+
+    var imgTag = document.getElementById("myImg");
+    imgTag.src = "" + teamData.crestUrl;
+    document.getElementById("fullName").innerHTML = "" + teamData.name;
+
+    if ( teamData.code == null){
+      document.getElementById("shortName").innerHTML = "DNE";
+    }
+    else {
+      document.getElementById("shortName").innerHTML = teamData.code;
+    }
+
+    if ( teamData.squadMarketValue == null){
+      document.getElementById("marketValue").innerHTML = "DNE";
+    }
+    else {
+      document.getElementById("marketValue").innerHTML = teamData.squadMarketValue;
+    }
+
+
+
+
 }
