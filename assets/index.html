@@ -29,22 +29,17 @@
     </style>
   </head>
   <body>
-
-    <form class="destinations-form">
+    <form id="team-form" class="destinations-form">
       <div class="input-line">
-
-        <input type="text" id="team" list="teamnames" class="form-input" name="destination" placeholder="Enter Team Name..."/>
+        <input type="text" id="team" list="teamnames" class="form-input"  placeholder="Enter Team Name..."/>
         <datalist id="teamnames"></datalist>
-        <a href="#results">
-          <button type="button" name="destination-submit" class="form-submit btn btn-special" onclick="myFunction()">Go</button>
-        </a>
-
+        <button type="button" name="destination-submit" class="form-submit btn btn-special">Go</button>
       </div>
-
     </form>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/loaded.js"></script>
     <script src="assets/js/comp.js"></script>
   </body>
 </html>
