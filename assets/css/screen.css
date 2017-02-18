@@ -2669,7 +2669,7 @@ textarea:focus {
 
 /* ----------------- 9.2. Footer ----------------- */
 .main-footer {
-  background-image: url(../img/footer-pattern.png);
+  background-image: url(../images/footer-pattern.png);
   background-repeat: repeat-x;
   background-color: #404040;
   padding: 60px 0;
@@ -2760,7 +2760,7 @@ textarea:focus {
 
 /* -------- Intro Section -------- */
 .hero-box {
-  background-image: url(../img/epl02.png);
+  background-image: url(../images/epl02.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -3134,7 +3134,7 @@ textarea:focus {
 
 /* -------- Parallax -------- */
 .parallax-box {
-  background-image: url(../img/epl03.png);
+  background-image: url(../images/epl03.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
