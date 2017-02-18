@@ -9,10 +9,12 @@ $( function() {
     minLength: 2,
     source: function( request, response ) {
       var term = request.term;
+
       if ( term in cache ) {
         response( cache[ term ] );
         return;
       }
+
       var competitionsAPI = "http://api.football-data.org/v1/competitions/398/teams";
       $.ajaxSetup({
         headers : {
@@ -24,9 +26,13 @@ $( function() {
         var results = [];
         var teams = data.teams;
 
+        // console.log(teams);
+
         for (var i = 0; i < data.count; i++) {
           var cur_team = teams[i].name;
+
           if ((cur_team.toLowerCase().includes(term)) && !(all_teams.indexOf(cur_team.toLowerCase()) > -1)){
+
             var option = document.createElement('option');
             option.value = teams[i].name;
             dataList.appendChild(option);
@@ -35,10 +41,13 @@ $( function() {
             results.push({
                 id: teams[i].shortName,
                 label: teams[i].name,
-                value: teams[i].name
+                value: teams[i].squadMarketValue,
+                crest: teams[i].crestUrl
             });
             console.log(results);
+            // console.log(all_teams);
           }
+
         }
 
         cache[ term ] = results;

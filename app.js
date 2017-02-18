@@ -13,6 +13,10 @@ app.get('/birds', function (req, res) {
   res.sendFile(path.join(__dirname + '/assets/birds.html'));
 });
 
+app.get('/team', function (req, res) {
+  res.sendFile(path.join(__dirname + '/assets/team.html'));
+});
+
 app.get('/competitions', function (req, res) {
   request({
     url: "http://api.football-data.org/v1/competitions/?season=2016",
