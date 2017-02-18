@@ -1,169 +1,48 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>EPL Analyzer</title>
-      <meta charset="utf-8">
-      <meta name="description" content="Traveling HTML5 Template" />
-      <meta name="author" content="Design Hooks" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700" rel="stylesheet" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link href="../assets/img/favicon.png" type="image/x-icon" rel="shortcut icon" />
-      <link href="assets/css/screen.css" rel="stylesheet" />
-   </head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Autocomplete - Categories</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-   <body class="home" id="page">
+      table {
+        font-size: 1em;
+      }
 
-      <!-- Main Content -->
-      <div class="content-box">
-         <!-- Hero Section -->
-         <section class="section section-hero">
-            <div class="hero-box">
-               <div class="container">
-                  <div class="hero-text align-center">
-                     <h1>Choose your team</h1>
-                     <!-- <p>and set your sails into paradise!</p> -->
-                  </div>
+      .ui-draggable,
+      .ui-droppable {
+        background-position: top;
+      }
+      .ui-autocomplete-category {
+        font-weight: bold;
+        padding: 0.2em 0.4em;
+        margin: 0.8em 0 0.2em;
+        line-height: 1.5;
+      }
 
-                  <form class="destinations-form">
-                     <div class="input-line">
+    </style>
+  </head>
+  <body>
 
-                        <input type="text" id="team" list="teamnames" class="form-input" name="destination"
-                        placeholder="Enter Team Name..."/>
-                          <datalist id="teamnames"></datalist>
-                        <a href="#results">
-                          <button type="button" name="destination-submit" class="form-submit btn btn-special" onclick="myFunction()">Go</button>
-                        </a>
-                     </div>
+    <form class="destinations-form">
+      <div class="input-line">
 
-                  </form>
-
-               </div>
-            </div>
-
-            <!-- Statistics Box -->
-            <div class="container">
-               <div class="statistics-box">
-                 <div class="statistics-item">
-                    <span class="value">5</span>
-                    <p class="title">Leagues</p>
-                 </div>
-                  <div class="statistics-item">
-                     <span class="value">20</span>
-                     <p class="title">Teams</p>
-                  </div>
-
-                  <div class="statistics-item">
-                     <span class="value">15</span>
-                     <p class="title">Cities</p>
-                  </div>
-
-                  <div class="statistics-item">
-                     <span class="value">1</span>
-                     <p class="title">League</p>
-                  </div>
-
-               </div>
-            </div>
-         </section>
-
-         <!-- Destinations Section -->
-
-
-         <!-- Parallax Box -->
-         <a name="results"></a>
-         <div class="parallax-box">
-            <div class="container">
-              <div class="text align-center">
-                <h1>Foo Bar</h1>
-                  <!-- <p>navigare necesse est, vivere non est necesse</p> -->
-                  <!-- <a href="#" class="btn btn-special no-icon size-2x">Rent your boat</a> -->
-                  <div class="row">
-                    <div class="col-md-5 align-left">
-                      <img id="myImg" src="http://upload.wikimedia.org/wikipedia/de/0/0a/FC_Liverpool.svg" width="300" height="200">
-                    </div>
-                </div>
-              </div>
-            </div>
-         </div>
-
-         <!-- Boats Section -->
-
+        <input type="text" id="team" list="teamnames" class="form-input" name="destination" placeholder="Enter Team Name..."/>
+        <datalist id="teamnames"></datalist>
+        <a href="#results">
+          <button type="button" name="destination-submit" class="form-submit btn btn-special" onclick="myFunction()">Go</button>
+        </a>
       </div>
 
-      <!-- Footer -->
-      <footer class="main-footer">
-         <!-- <div class="container">
-            <div class="row">
-               <div class="col-md-5">
-                  <div class="widget widget_links">
-                     <h5 class="widget-title">Top Locations</h5>
-                     <ul>
-                        <li><a href="#">Lorem impsum dolor</a></li>
-                        <li><a href="#">Sit amet consectetur</a></li>
-                        <li><a href="#">Adipisicing elit</a></li>
-                        <li><a href="#">Eiusmod tempor</a></li>
-                        <li><a href="#">incididunt ut labore</a></li>
-                     </ul>
-                  </div>
-               </div>
+    </form>
 
-               <div class="col-md-5">
-                  <div class="widget widget_links">
-                     <h5 class="widget-title">Featured Boats</h5>
-                     <ul>
-                        <li><a href="#">Lorem impsum dolor</a></li>
-                        <li><a href="#">Sit amet consectetur</a></li>
-                        <li><a href="#">Adipisicing elit</a></li>
-                        <li><a href="#">Eiusmod tempor</a></li>
-                     </ul>
-                  </div>
-               </div>
-
-               <div class="col-md-9">
-                  <div class="widget widget_social">
-                     <h5 class="widget-title">Subscribe to our newsletter</h5>
-                     <form class="subscribe-form">
-                        <div class="input-line">
-                           <input type="text" name="subscribe-email" value="" placeholder="Your email address" />
-                        </div>
-                        <button type="button" name="subscribe-submit" class="btn btn-special no-icon">Subscribe</button>
-                     </form>
-
-                     <ul class="clean-list social-block">
-                        <li>
-                           <a href="#"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li>
-                           <a href="#"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li>
-                           <a href="#"><i class="icon-google-plus"></i></a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-
-               <div class="col-md-5">
-                  <div class="widget widget_links">
-                     <h5 class="widget-title">Contact us</h5>
-                     <ul>
-                        <li><a href="#">Lorem impsum dolor</a></li>
-                        <li><a href="#">Sit amet consectetur</a></li>
-                        <li><a href="#">Adipisicing elit</a></li>
-                        <li><a href="#">Eiusmod tempor</a></li>
-                        <li><a href="#">incididunt ut labore</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div> -->
-      </footer>
-
-      <!-- Scripts -->
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script src="assets/js/functions.js"></script>
-      <script src="assets/js/comp.js"></script>
-   </body>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/comp.js"></script>
+  </body>
 </html>
