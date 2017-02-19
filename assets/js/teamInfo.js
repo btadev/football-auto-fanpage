@@ -87,7 +87,6 @@ var mainLogic = function() {
     else {
       document.getElementById("marketValue").innerHTML = teamData.squadMarketValue;
     }
-
 }
 
 function getQueryVariable(param)
