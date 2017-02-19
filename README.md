@@ -13,33 +13,31 @@ We created a search page which you can search your team from an automatic dropdo
 
 ### Framework and Libraries ###
 
-* jQuery
--For client-side scripting
+* jQuery > For client-side scripting
 
-* Bootstrap and Semantic UI
--For CSS styling
+* Bootstrap and Semantic UI > For CSS styling
 
-* Font Awesome
--For Awesome title
+* Font Awesome > For Awesome title
 
-* Node.js
--Our Server-side environment
+* Node.js > Our Server-side environment
 
 ### APIs ###
 
-* Football Data (api.football-data.org)
--Five different APIs from this. Data about:
+* Football Data (api.football-data.org) > Five different APIs from this. Data about:
+
 1. All available football competitions
+
 2. Each competition
+
 3. Each team
+
 4. Players in each team
+
 5. Fixtures and results of team
 
-* Google Maps API
--To put player nationalities marker (plus clustering close markers).
+* Google Maps API > To put player nationalities marker (plus clustering close markers).
 
-* Google Custom Search API
--To search 1st image of football club background for each club automatically.
+* Google Custom Search API > To search 1st image of football club background for each club automatically.
 
 ### Known Bugs ###
 
