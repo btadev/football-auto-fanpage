@@ -1,7 +1,6 @@
 //api call
 
-
-var teamId = "64";
+var teamId = getQueryVariable("id");
 
 var team = "http://api.football-data.org/v1/teams/" + teamId
 var players = "http://api.football-data.org/v1/teams/" + teamId + "/players"
@@ -11,23 +10,23 @@ var teamData = null;
 var playersData = null;
 var fixturesData = null;
 //
-$.ajaxSetup({
-    headers : {'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'}
-});
-$.getJSON(team, function(data) {
-  teamData = data;
-  mainLogic();
-});
-
-$.getJSON(players, function(data) {
-  playersData = data.players;
-  mainLogic();
-});
-
-$.getJSON(fixtures, function(data) {
-  fixturesData = data.fixtures;
-  mainLogic();
-})
+// $.ajaxSetup({
+//     headers : {'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'}
+// });
+// $.getJSON(team, function(data) {
+//   teamData = data;
+//   mainLogic();
+// });
+//
+// $.getJSON(players, function(data) {
+//   playersData = data.players;
+//   mainLogic();
+// });
+//
+// $.getJSON(fixtures, function(data) {
+//   fixturesData = data.fixtures;
+//   mainLogic();
+// })
 
 var mainLogic = function() {
 
@@ -84,7 +83,15 @@ var mainLogic = function() {
       document.getElementById("marketValue").innerHTML = teamData.squadMarketValue;
     }
 
+}
 
-
-
+function getQueryVariable(param)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == param){return pair[1];}
+       }
+       return(false);
 }
