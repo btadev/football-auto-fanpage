@@ -1,46 +1,90 @@
 //api call
 
+
 var teamId = "64";
 
-var api01 = "http://api.football-data.org/v1/teams/" + teamId
-var api02 = "http://api.football-data.org/v1/teams/" + teamId + "/players"
-var api03 = "http://api.football-data.org/v1/teams/" + teamId + "/fixtures"
+var team = "http://api.football-data.org/v1/teams/" + teamId
+var players = "http://api.football-data.org/v1/teams/" + teamId + "/players"
+var fixtures = "http://api.football-data.org/v1/teams/" + teamId + "/fixtures"
 
-var urls =[api01, api02, api03]
+var teamData = null;
+var playersData = null;
+var fixturesData = null;
+//
+$.ajaxSetup({
+    headers : {'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'}
+});
+$.getJSON(team, function(data) {
+  teamData = data;
+  mainLogic();
+});
 
-function GetJSONResult(url)
-{
-  $.ajaxSetup({
-    headers : {
-      'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'
+$.getJSON(players, function(data) {
+  playersData = data.players;
+  mainLogic();
+});
+
+$.getJSON(fixtures, function(data) {
+  fixturesData = data.fixtures;
+  mainLogic();
+})
+
+var mainLogic = function() {
+
+  if (!teamData || !playersData || !fixturesData)
+    return;
+
+    console.log("all 3 apis called");
+    // console.log(teamData);
+    // console.log(fixturesData);
+
+    var playersInfo = []
+
+    for (var i=0;i<playersData.length; i++){
+      cur_player = playersData[i]
+      playersInfo.push([
+        cur_player.name,
+        cur_player.position,
+        cur_player.marketValue,
+        cur_player.jerseyNumber,
+        cur_player.dateOfBirth,
+        cur_player.nationality
+      ])
     }
-  });
-  $.getJSON(url,
-  function(data){
-    console.log(data);
-   });
+
+    $(document).ready(function() {
+        $('#playertable').DataTable( {
+            data: playersInfo,
+            columns: [
+                { title: "Name" },
+                { title: "Position" },
+                { title: "Market value" },
+                { title: "Jersey no." },
+                { title: "Date of birth" },
+                { title: "Nationality" }
+            ]
+        } );
+    });
+
+    var imgTag = document.getElementById("myImg");
+    imgTag.src = "" + teamData.crestUrl;
+    document.getElementById("fullName").innerHTML = "" + teamData.name;
+
+    if ( teamData.code == null){
+      document.getElementById("shortName").innerHTML = "DNE";
+    }
+    else {
+      document.getElementById("shortName").innerHTML = teamData.code;
+    }
+
+    if ( teamData.squadMarketValue == null){
+      document.getElementById("marketValue").innerHTML = "DNE";
+    }
+    else {
+      document.getElementById("marketValue").innerHTML = teamData.squadMarketValue;
+    }
+
+
+
+
 }
-
-for (var i=0;i<=3;i++)
-{
-    GetJSONResult(urls[i]);
-}
-
-
-
-var dataSet = [
-    [ "Sadio Mané", "Left Wing", "30,000,000 €"],
-    [ "Alexander Manninger", "Keeper", "200,000 €"],
-    [ "Ragnar Klavan", "Centre Back", "4,000,000 €"]
-  ];
-
-$(document).ready(function() {
-    $('#playertable').DataTable( {
-        data: dataSet,
-        columns: [
-            { title: "Name" },
-            { title: "Position" },
-            { title: "Market value" },
-        ]
-    } );
-} );
