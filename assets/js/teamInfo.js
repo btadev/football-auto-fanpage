@@ -72,7 +72,7 @@ var mainLogic = function() {
     var imgTag = document.getElementById("myImg");
     imgTag.src = "" + teamData.crestUrl;
     document.getElementById("fullName").innerHTML = "" + teamData.name;
-    // setBackground(teamData.name);
+    setBackground(teamData.name);
 
     if ( teamData.code == null){
       document.getElementById("shortName").innerHTML = "DNE";

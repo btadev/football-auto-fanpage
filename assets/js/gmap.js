@@ -29,19 +29,6 @@ function getCountry(country, player_name) {
     geocoder.geocode( { 'address': country }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var finalLatLng = results[0].geometry.location;
-          // if (markers.length != 0) {
-          //   for (existingMarker of markers) {
-          //     var pos = existingMarker.getPosition();
-          //
-          //     //if a marker already exists in the same position as this marker
-          //     if (latlng.equals(pos)) {
-          //       //update the position of the coincident marker by applying a small multipler to its coordinates
-          //       var newLat = latlng.lat() + (Math.random() -.5) / 1500;// * (Math.random() * (max - min) + min);
-          //       var newLng = latlng.lng() + (Math.random() -.5) / 1500;// * (Math.random() * (max - min) + min);
-          //       finalLatLng = new google.maps.LatLng(newLat,newLng);
-          //     }
-          //   }
-          // }
           var marker = new google.maps.Marker({
             map: map,
             label: player_name,

@@ -5,7 +5,8 @@ function team_names_of_competition(competition_name, url) {
     var competition = data2;
     var teams = competition.teams;
     var team_in_competition = {}
-    for (cur_team of competition) {
+    for (var j = 0; j < competition.count; j++) {
+      var cur_team = teams[j];
       var cur_team_name = cur_team.name;
       var cur_team_id = cur_team._links.self.href.split("/").pop();
       team_in_competition[cur_team_name] = cur_team_id;
@@ -33,7 +34,6 @@ $('document').ready(function() {
         for (team_name in competion_name2id) {
           team_by_category.push({label: team_name, category: competition_name})
         }
-        // console.log(team_by_category)
       }
       $.ajaxSetup({async : true});
     })
