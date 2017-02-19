@@ -45,3 +45,5 @@ We created a search page which you can search your team from an automatic dropdo
 * If customized team background is not available, we show default background, however even some available ones don't show up because of slow internet/redirected URL.
 
 * Translating from player nationality to LatLong requires Google's Geocoding, which has a limit in free version (so our solution was to timeout and recursively call the function until we get a valid response back) - this is pretty slow and expensive.
+
+* Our Google Custom Search API is free version, so it will expire for 1 day after a hundred or so requests.
