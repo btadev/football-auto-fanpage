@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Autocomplete - Remote with caching</title>
+    <title>Football.Team.Analyzer.2016/17</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Raleway:400,700" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css">
     <link rel="stylesheet" href="assets/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="assets/css/team.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
 
 
     <style>
@@ -39,44 +41,58 @@
         z-index: -1;
     }
     </style>
+
   </head>
   <body>
 
     <img id="imagename">
-        <div class="container-fluid" style="margin-top:300px;">
-
+        <div class="container-fluid">
           <div class="col-md-12">
-            <div class="col-md-4 col-xs-6">
-              <img id="myImg" src="assets/images/reload.svg" width="260" height="260" class="pull-right">
+            <div class="col-md-4 col-md-6">
+              <img id="myImg" src="assets/images/reload.svg" height="260" class="center">
             </div>
-              <div class="col-md-offset-1 col-md-2 col-xs-6">
-                 <label style="font-size:25px;color:#ffffff;"> Market value: </label>
-                 <h3 id="marketValue" style="color:#ffffff;"> --- </h3>
-                 <br>
-                 <label style="font-size:25px;color:#ffffff;"> Full name: </label>
-                 <h3 id="fullName" style="color:#ffffff;"> --- </h3>
-                 <br>
-                 <label style="font-size:25px;color:#ffffff;"> Short name: </label>
-                 <h3 id="shortName" style="color:#ffffff;"> --- </h3>
-              </div>
-              <div class="col-md-offset-1 col-md-4">
-                <label style="font-size:25px;color:#ffffff;"> Fixtures </label>
-              </div>
+
+            <div class="col-md-4">
+               <label style="font-size:25px;color:#ffffff;"> Market value: </label>
+               <h3 id="marketValue" style="color:#ffffff;"> --- </h3>
+               <br>
+               <label style="font-size:25px;color:#ffffff;"> Full name: </label>
+               <h3 id="fullName" style="color:#ffffff;"> --- </h3>
+               <br>
+               <label style="font-size:25px;color:#ffffff;"> Short name: </label>
+               <h3 id="shortName" style="color:#ffffff;"> --- </h3>
+            </div>
+            <div class="col-md-4">
+              <label style="font-size:25px;color:#ffffff;"> Fixtures </label>
+            </div>
           </div>
 
         </div>
 
-        <div class="container-fluid" style="margin-top:250px;margin-bottom:100px;">
+        <div class="container-fluid" style="margin-top:150px;margin-bottom:150px;">
           <div class="col-md-12">
             <h1 style="text-align:center;color:#ffffff;">Players</h1>
             <div class="col-md-offset-2 col-md-8">
-              <table id="playertable" class="table table-striped ui celled table" cellspacing="0">
-              </table>
+              <table id="playertable" class="table table-striped ui celled table" cellspacing="0"></table>
             </div>
           </div>
         </div>
 
+        <div class="container-fluid" style="margin-top:150px;margin-bottom:150px;">
+          <div class="col-md-12">
+            <h1 style="text-align:center;color:#ffffff;">Player Nationalities</h1>
+            <div class="col-md-offset-2 col-md-8">
+              <div id="map"></div>
+            </div>
+          </div>
+        </div>
+
+
     <script src="assets/js/getbg.js"></script>
+    <script src="assets/js/gmap.js"></script>
     <script src="assets/js/teamInfo.js"></script>
+     <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAxxcnigsHUk25BQxzhaHgZP9bsRBDQd0&callback=initMap">
+     </script>
   </body>
 </html>
