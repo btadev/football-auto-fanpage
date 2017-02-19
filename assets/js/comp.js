@@ -18,7 +18,6 @@ function team_names_of_competition(competition_name, url) {
 
 $('document').ready(function() {
   if (team_by_category.length == 0) {
-    console.log
     $.ajaxSetup({
       headers : {'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'},
       async : false
