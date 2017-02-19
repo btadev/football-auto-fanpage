@@ -21,11 +21,11 @@ body {
 		z-index: -1;
 }
 #map {
-	height:400px;
+	height: 350px;
 	width:100%;
 	top:0;
 	left:0;
-	position:absolute;
+	position:center;
 	z-index:200;
 }
 .container-fluid{
@@ -33,5 +33,5 @@ body {
 	margin-top:30vh;
 	margin-left:20vh;
 	margin-right:20vh;
-	margin-bottom:30vh;
+	margin-bottom:20vh;
 }

@@ -39,8 +39,7 @@ var mainLogic = function() {
 
     var playersInfo = []
 
-    for (var i=0;i<playersData.length; i++){
-      cur_player = playersData[i]
+    for (cur_player of playersData){
       playersInfo.push([
         cur_player.name,
         cur_player.position,
@@ -67,6 +66,7 @@ var mainLogic = function() {
             aaSorting: [[2, 'dsc']]
         } );
         initMap();
+        setCountryMarkers(playersData);
     });
 
     var imgTag = document.getElementById("myImg");
@@ -94,8 +94,8 @@ function getQueryVariable(param)
 {
        var query = window.location.search.substring(1);
        var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
+       for (v of vars) {
+               var pair = v.split("=");
                if(pair[0] == param){return pair[1];}
        }
        return(false);

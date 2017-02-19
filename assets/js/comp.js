@@ -5,8 +5,7 @@ function team_names_of_competition(competition_name, url) {
     var competition = data2;
     var teams = competition.teams;
     var team_in_competition = {}
-    for (var j = 0; j < competition.count; j++) {
-      var cur_team = teams[j];
+    for (cur_team of competition) {
       var cur_team_name = cur_team.name;
       var cur_team_id = cur_team._links.self.href.split("/").pop();
       team_in_competition[cur_team_name] = cur_team_id;
@@ -25,9 +24,9 @@ $('document').ready(function() {
     var allCompetitionsAPI = "http://api.football-data.org/v1/competitions/?season=2016";
     $.getJSON( allCompetitionsAPI, function( data, status, xhr ) {
       var all_competitions = data;
-      for (var i = 0; i < all_competitions.length; i++) {
-        var competition_name = all_competitions[i].caption;
-        var competitionAPI = "http://api.football-data.org/v1/competitions/"+all_competitions[i].id+"/teams";
+      for (cur_competition of all_competitions) {
+        var competition_name = cur_competition.caption;
+        var competitionAPI = "http://api.football-data.org/v1/competitions/"+cur_competition.id+"/teams";
 
         var competion_name2id= team_names_of_competition(competition_name, competitionAPI);
         all_teams_in_each_competition[competition_name] = competion_name2id;
