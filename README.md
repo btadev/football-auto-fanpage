@@ -25,11 +25,11 @@ We created a search page which you can search your team from an automatic dropdo
 
 * Football Data (api.football-data.org) > Five different APIs from this. Data about:
 
-* 1. All available football competitions
-* 2. Each competition
-* 3. Each team
-* 4. Players in each team
-* 5. Fixtures and results of team
+* 1) All available football competitions
+* 2) Each competition
+* 3) Each team
+* 4) Players in each team
+* 5) Fixtures and results of team
 
 * Google Maps API > To put player nationalities marker (plus clustering close markers).
 
