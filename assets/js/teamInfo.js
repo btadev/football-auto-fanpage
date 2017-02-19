@@ -9,24 +9,24 @@ var fixtures = "http://api.football-data.org/v1/teams/" + teamId + "/fixtures"
 var teamData = null;
 var playersData = null;
 var fixturesData = null;
-//
-// $.ajaxSetup({
-//     headers : {'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'}
-// });
-// $.getJSON(team, function(data) {
-//   teamData = data;
-//   mainLogic();
-// });
-//
-// $.getJSON(players, function(data) {
-//   playersData = data.players;
-//   mainLogic();
-// });
-//
-// $.getJSON(fixtures, function(data) {
-//   fixturesData = data.fixtures;
-//   mainLogic();
-// })
+
+$.ajaxSetup({
+    headers : {'X-Auth-Token': '88c3ec8611944ce2a1a7bdc430665def'}
+});
+$.getJSON(team, function(data) {
+  teamData = data;
+  mainLogic();
+});
+
+$.getJSON(players, function(data) {
+  playersData = data.players;
+  mainLogic();
+});
+
+$.getJSON(fixtures, function(data) {
+  fixturesData = data.fixtures;
+  mainLogic();
+})
 
 var mainLogic = function() {
 
