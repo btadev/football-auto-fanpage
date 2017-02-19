@@ -31,6 +31,7 @@ We created a search page which you can search your team from an automatic dropdo
 * 4) Players in each team
 * 5) Fixtures and results of team
 
+
 * Google Maps API > To put player nationalities marker (plus clustering close markers).
 
 * Google Custom Search API > To search 1st image of football club background for each club automatically.
