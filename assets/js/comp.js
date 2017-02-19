@@ -61,19 +61,15 @@ $('document').ready(function() {
       }
     });
 
-    $("#team").catcomplete({
-      delay: 500,
-      source: team_by_category,
-      select: function(e, ui) {
-        var team_id = all_teams_in_each_competition[ui.item.category][ui.item.label];
-        console.log('Competition: ' + ui.item.category);
-        console.log('Team: ' + ui.item.label);
-        console.log('Team ID: ' + team_id);
-        $(location).attr('href', '/team?id='+team_id);
-      }
-    });
-
-    $('#team-form').on('submit', function(e){
-      return false;
-    });
+  $("#team").catcomplete({
+    delay: 500,
+    source: team_by_category,
+    select: function(e, ui) {
+      var team_id = all_teams_in_each_competition[ui.item.category][ui.item.label];
+      console.log('Competition: ' + ui.item.category);
+      console.log('Team: ' + ui.item.label);
+      console.log('Team ID: ' + team_id);
+      $(location).attr('href', '/team?id='+team_id);
+    }
+  });
 });

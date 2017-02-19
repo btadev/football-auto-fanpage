@@ -1,9 +1,11 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-table {
-  font-size: 1em;
+		background-image: url("../images/goal.jpg");
+		height: 100%;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		/*padding: 160px 0;*/
+		margin-bottom: 100px;
 }
 
 .ui-draggable,
@@ -15,4 +17,66 @@ table {
   padding: 0.2em 0.4em;
   margin: 0.8em 0 0.2em;
   line-height: 1.5;
+}
+
+.search-container{
+  vertical-align: middle;
+	margin-top:35vh;
+	margin-left:20vh;
+	margin-right:20vh;
+	margin-bottom:20vh;
+}
+
+.search-title{
+  font-weight: bold;
+  text-align: center;
+  font-size:50px;
+  color:#ffffff;
+}
+.fa-facebook{
+  font-size:100px;
+}
+.fa-futbol-o{
+  font-size:60px;
+}
+.fa-tumblr{
+  font-size:85px;
+}
+.fa-google{
+  font-size:105px;
+}
+.fa-opera{
+  font-size:60px;
+}
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
 }

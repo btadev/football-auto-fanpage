@@ -6,17 +6,34 @@
     <title>Football.Team.Analyzer.2016/17</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/f166a45cf3.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-    <form id="team-form" class="destinations-form">
-      <div class="input-line">
-        <input type="text" id="team" list="teamnames" class="form-input" placeholder="Enter Team Name..."/>
-        <datalist id="teamnames"></datalist>
-      </div>
-    </form>
+    <div class="search-container">
+  		<h1 class="search-title">
+        <i class="fa fa-facebook"></i><i class="fa fa-opera"></i><i class="fa fa-opera"></i><i class="fa fa-tumblr"></i>
+        _<i class="fa fa-facebook"></i><i class="fa fa-opera"></i><i class="fa fa-opera"></i><i class="fa fa-tumblr"></i>
+        _<i class="fa fa-google"></i><i class="fa fa-futbol-o"></i>
+      </h1>
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" id="team" list="teamnames" class="form-control input-lg" placeholder="Enter Team Name..."/>
+          <datalist id="teamnames"></datalist>
+          <span class="input-group-btn">
+            <button class="btn btn-info btn-lg" type="button" id="search-button">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </span>
+        </div>
+    	</div>
+
+      <div id="dialog" title="Search_Box_Help"></div>
+    </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="assets/js/loaded.js"></script>
     <script src="assets/js/comp.js"></script>
   </body>

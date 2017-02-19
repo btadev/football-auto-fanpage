@@ -28,6 +28,10 @@ body {
 	position:center;
 	z-index:200;
 }
+.club-label{
+	font-size:25px;
+	color:#ffffff;
+}
 .container-fluid{
 	background-color:black;
 	margin-top:30vh;
